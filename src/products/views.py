@@ -10,8 +10,8 @@ def product_list_view(request):
     }
     return render(request, 'products/product_list.html', context)
 
-def product_delete_view(request,id):
-    obj = get_object_or_404(Product, id=id)
+def product_delete_view(request,my_id):
+    obj = get_object_or_404(Product, id=my_id)
     if request.method =="POST":
         obj.delete()
         return redirect('../../')
@@ -21,9 +21,9 @@ def product_delete_view(request,id):
     }
     return render(request, 'products/product_delete.html', context)
 
-def dynamic_lookup_view(request,id):
-    #obj = Product.objects.get(id=id)
-    obj = get_object_or_404(Product, id=id)
+def dynamic_lookup_view(request,my_id):
+    #obj = Product.objects.get(id=my_id)
+    obj = get_object_or_404(Product, id=my_id)
     context = {
         'object':obj
     }
